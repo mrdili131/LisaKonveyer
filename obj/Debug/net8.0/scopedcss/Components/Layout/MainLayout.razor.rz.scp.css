@@ -2,10 +2,12 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    background-color: rgb(18, 148, 105);
 }
 
 main[b-82h24o345p] {
     flex: 1;
+    background-color: rgb(18, 148, 105);
 }
 
 .sidebar[b-82h24o345p] {

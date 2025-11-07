@@ -1,0 +1,68 @@
+:root[b-syg11vbviz]{
+    --pm-color : rgb(20, 82, 107);
+    --box-bg : rgba(45, 83, 133, 0.418);
+  }
+  *[b-syg11vbviz]{
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  body[b-syg11vbviz]{
+    background-color: rgb(18, 148, 105);
+  }
+  nav[b-syg11vbviz]{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: var(--pm-color);
+    padding: 20px;
+    font-size: 25px;
+    color: white;
+    border-bottom: 1px solid rgb(13, 51, 66);
+    align-items: center;
+  }
+  a[b-syg11vbviz]{
+    color: white;
+    text-decoration: none;
+  }
+  select[b-syg11vbviz]{
+    background-color: transparent;
+    border: 0;
+    color: white;
+    font-size: 25px;
+  }
+  option[b-syg11vbviz]{
+    background-color: transparent;
+    color: black;
+  }
+  .main[b-syg11vbviz]{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    color: rgba(255, 255, 255, 0.842);
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+  .box-container[b-syg11vbviz]{
+    background-color: rgb(16, 95, 69);
+    padding: 200px;
+    border-radius: 10px;
+    border: 5px solid rgb(11, 61, 44);
+  }
+  .ariza-container[b-syg11vbviz]{
+
+  }
+  table[b-syg11vbviz]{
+    margin-top: 20px;
+    background-color: rgb(28, 116, 86);
+    border: 5px solid rgb(197, 197, 197);
+    border-radius: 5px;
+  }
+  td[b-syg11vbviz],th[b-syg11vbviz]{
+    border: 3px solid rgb(197, 197, 197);
+    padding: 10px;
+    font-size: 20px;
+    color: white;
+  }
