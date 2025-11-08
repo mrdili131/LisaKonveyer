@@ -97,6 +97,105 @@ main[b-82h24o345p] {
         right: 0.75rem;
         top: 0.5rem;
     }
+/* /Components/Pages/KonveyerPages/ApplicationsPage.razor.rz.scp.css */
+:root[b-p28tcht9iz]{
+    --pm-color : rgb(20, 82, 107);
+    --box-bg : rgba(45, 83, 133, 0.418);
+  }
+  *[b-p28tcht9iz]{
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  body[b-p28tcht9iz]{
+    background-color: rgb(18, 148, 105);
+  }
+  nav[b-p28tcht9iz]{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: rgb(20, 82, 107);
+    padding: 20px;
+    font-size: 25px;
+    color: white;
+    border-bottom: 1px solid rgb(13, 51, 66);
+    align-items: center;
+  }
+  a[b-p28tcht9iz]{
+    color: white;
+    text-decoration: none;
+  }
+  select[b-p28tcht9iz]{
+    background-color: transparent;
+    border: 0;
+    color: white;
+    font-size: 25px;
+  }
+  option[b-p28tcht9iz]{
+    background-color: transparent;
+    color: black;
+  }
+  .main[b-p28tcht9iz]{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    color: rgba(255, 255, 255, 0.842);
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+  .box-container[b-p28tcht9iz]{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: center;
+    background-color: rgb(16, 95, 69);
+    gap:10px;
+    border-radius: 10px;
+    border: 5px solid rgb(11, 61, 44);
+    padding: 20px;
+  }
+  .product[b-p28tcht9iz]{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    width: 45%;
+    height: 200px;
+    border-radius: 12px;
+    background-color: rgb(40, 127, 75);
+    border: 2px solid rgb(20, 69, 40);
+  }
+  .product:hover[b-p28tcht9iz]{
+    background-color: rgb(29, 97, 56);
+  }
+  table[b-p28tcht9iz]{
+    margin-top: 20px;
+    background-color: rgb(28, 116, 86);
+    border: 5px solid rgb(197, 197, 197);
+    border-radius: 5px;
+  }
+  td[b-p28tcht9iz],th[b-p28tcht9iz]{
+    border: 3px solid rgb(197, 197, 197);
+    padding: 10px;
+    font-size: 20px;
+    color: white;
+  }
+  .back-btn[b-p28tcht9iz]{
+    border: 1px solid black;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 13px;
+    background-color: black;
+    border:2px solid rgb(42, 42, 42);
+    color: white;
+  }
+  .back-btn:active[b-p28tcht9iz]{
+    background-color: rgb(34, 34, 34);
+  }
 /* /Components/Pages/KonveyerPages/Index.razor.rz.scp.css */
 :root[b-syg11vbviz]{
     --pm-color : rgb(20, 82, 107);
@@ -114,7 +213,7 @@ main[b-82h24o345p] {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    background-color: var(--pm-color);
+    background-color: rgb(20, 82, 107);
     padding: 20px;
     font-size: 25px;
     color: white;
@@ -397,32 +496,6 @@ main[b-82h24o345p] {
     background-color: rgb(143, 255, 112);
     border:3px solid rgb(116, 220, 87);
   }
-/* /Components/Pages/KonveyerPages/NavBar.razor.rz.scp.css */
-  nav[b-ukw9x82tho]{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    background-color: rgb(20, 82, 107);
-    padding: 20px;
-    font-size: 25px;
-    color: white;
-    border-bottom: 1px solid rgb(13, 51, 66);
-    align-items: center;
-  }
-  a[b-ukw9x82tho]{
-    color: white;
-    text-decoration: none;
-  }
-    select[b-ukw9x82tho]{
-    background-color: transparent;
-    border: 0;
-    color: white;
-    font-size: 25px;
-  }
-  option[b-ukw9x82tho]{
-    background-color: transparent;
-    color: black;
-  }
 /* /Components/Pages/KonveyerPages/Requests.razor.rz.scp.css */
 :root[b-qy8ohi93r2]{
     --pm-color : rgb(20, 82, 107);
@@ -440,7 +513,7 @@ main[b-82h24o345p] {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    background-color: var(--pm-color);
+    background-color: rgb(20, 82, 107);
     padding: 20px;
     font-size: 25px;
     color: white;

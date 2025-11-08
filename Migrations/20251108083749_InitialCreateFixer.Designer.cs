@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LisaKonveyer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251106103140_InitialCreate3")]
-    partial class InitialCreate3
+    [Migration("20251108083749_InitialCreateFixer")]
+    partial class InitialCreateFixer
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -118,7 +118,7 @@ namespace LisaKonveyer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Application");
+                    b.ToTable("Applications");
                 });
 
             modelBuilder.Entity("LisaKonveyer.Models.Client", b =>
@@ -516,19 +516,19 @@ namespace LisaKonveyer.Migrations
                     b.HasOne("LisaKonveyer.Models.Application", "Application")
                         .WithMany()
                         .HasForeignKey("ApplicationId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("LisaKonveyer.Models.Client", "Client")
                         .WithMany()
                         .HasForeignKey("ClientId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("LisaKonveyer.Models.Filial", "Filial")
                         .WithMany()
                         .HasForeignKey("FilialId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("LisaKonveyer.Data.ApplicationUser", "User")
@@ -551,19 +551,19 @@ namespace LisaKonveyer.Migrations
                     b.HasOne("LisaKonveyer.Models.Application", "Application")
                         .WithMany()
                         .HasForeignKey("ApplicationId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("LisaKonveyer.Models.Client", "Client")
                         .WithMany()
                         .HasForeignKey("ClientId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("LisaKonveyer.Models.Filial", "Filial")
                         .WithMany()
                         .HasForeignKey("FilialId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("LisaKonveyer.Data.ApplicationUser", "User")

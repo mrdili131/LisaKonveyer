@@ -178,6 +178,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/user/source/repos/LisaKonveyer/LisaKonveyer/Components/Pages/Admin.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/user/source/repos/LisaKonveyer/LisaKonveyer/Components/Pages/Auth.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdXRoLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -198,6 +202,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-82h24o345p
 
+[C:/Users/user/source/repos/LisaKonveyer/LisaKonveyer/Components/Pages/KonveyerPages/ApplicationsPage.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xLb252ZXllclBhZ2VzXEFwcGxpY2F0aW9uc1BhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-p28tcht9iz
+
 [C:/Users/user/source/repos/LisaKonveyer/LisaKonveyer/Components/Pages/KonveyerPages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xLb252ZXllclBhZ2VzXEluZGV4LnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-syg11vbviz
@@ -205,10 +213,6 @@ build_metadata.AdditionalFiles.CssScope = b-syg11vbviz
 [C:/Users/user/source/repos/LisaKonveyer/LisaKonveyer/Components/Pages/KonveyerPages/KonveyerPage.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xLb252ZXllclBhZ2VzXEtvbnZleWVyUGFnZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-fyxsoq6n12
-
-[C:/Users/user/source/repos/LisaKonveyer/LisaKonveyer/Components/Pages/KonveyerPages/NavBar.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xLb252ZXllclBhZ2VzXE5hdkJhci5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = b-ukw9x82tho
 
 [C:/Users/user/source/repos/LisaKonveyer/LisaKonveyer/Components/Pages/KonveyerPages/Requests.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xLb252ZXllclBhZ2VzXFJlcXVlc3RzLnJhem9y

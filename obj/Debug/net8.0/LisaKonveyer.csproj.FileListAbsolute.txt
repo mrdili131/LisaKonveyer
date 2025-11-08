@@ -138,7 +138,6 @@ C:\Users\user\source\repos\LisaKonveyer\LisaKonveyer\obj\Debug\net8.0\rjsmcshtml
 C:\Users\user\source\repos\LisaKonveyer\LisaKonveyer\obj\Debug\net8.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
 C:\Users\user\source\repos\LisaKonveyer\LisaKonveyer\obj\Debug\net8.0\scopedcss\Components\Pages\KonveyerPages\Index.razor.rz.scp.css
 C:\Users\user\source\repos\LisaKonveyer\LisaKonveyer\obj\Debug\net8.0\scopedcss\Components\Pages\KonveyerPages\KonveyerPage.razor.rz.scp.css
-C:\Users\user\source\repos\LisaKonveyer\LisaKonveyer\obj\Debug\net8.0\scopedcss\Components\Pages\KonveyerPages\NavBar.razor.rz.scp.css
 C:\Users\user\source\repos\LisaKonveyer\LisaKonveyer\obj\Debug\net8.0\scopedcss\Components\Pages\KonveyerPages\Requests.razor.rz.scp.css
 C:\Users\user\source\repos\LisaKonveyer\LisaKonveyer\obj\Debug\net8.0\scopedcss\bundle\LisaKonveyer.styles.css
 C:\Users\user\source\repos\LisaKonveyer\LisaKonveyer\obj\Debug\net8.0\scopedcss\projectbundle\LisaKonveyer.bundle.scp.css
@@ -153,3 +152,4 @@ C:\Users\user\source\repos\LisaKonveyer\LisaKonveyer\obj\Debug\net8.0\refint\Lis
 C:\Users\user\source\repos\LisaKonveyer\LisaKonveyer\obj\Debug\net8.0\LisaKonveyer.pdb
 C:\Users\user\source\repos\LisaKonveyer\LisaKonveyer\obj\Debug\net8.0\LisaKonveyer.genruntimeconfig.cache
 C:\Users\user\source\repos\LisaKonveyer\LisaKonveyer\obj\Debug\net8.0\ref\LisaKonveyer.dll
+C:\Users\user\source\repos\LisaKonveyer\LisaKonveyer\obj\Debug\net8.0\scopedcss\Components\Pages\KonveyerPages\ApplicationsPage.razor.rz.scp.css

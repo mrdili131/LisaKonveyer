@@ -12,10 +12,11 @@ namespace LisaKonveyer.Data
 
         }
 
-        DbSet<Client> Clients {get;set;}
-        DbSet<Filial> Filials {get;set;}
-        DbSet<Loan> Loans {get;set;}
-        DbSet<LoanRequest> LoanRequests {get;set;}
+        public DbSet<Client> Clients {get;set;}
+        public DbSet<Filial> Filials {get;set;}
+        public DbSet<Loan> Loans {get;set;}
+        public DbSet<LoanRequest> LoanRequests {get;set;}
+        public DbSet<Application> Applications {get;set;}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -1,0 +1,28 @@
+@page "/Admin"
+@rendermode InteractiveServer
+@inject LisaKonveyer.Data.ApplicationDbContext DbContext
+@using Microsoft.EntityFrameworkCore
+@using LisaKonveyer.Models
+@using LisaKonveyer.Data
+@inject UserManager<ApplicationUser> UserManager
+
+<h1>Admin</h1>
+
+<h1>@(CurrentUser?.Email ?? "Non logged in !")</h1>
+<h1>@fl.Id @fl.Name</h1>
+<hr>
+
+
+@code{
+    private ApplicationUser CurrentUser;
+    Filial fl = new Filial();
+
+    protected override async Task OnInitializedAsync(){
+        var state = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = state.User;
+        if (user.Identity.IsAuthenticated){
+            CurrentUser = await UserManager.GetUserAsync(user);
+        }
+        fl = await DbContext.Filials.FirstOrDefaultAsync(i=>i.Id==1);
+    }
+}

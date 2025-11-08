@@ -1,16 +1,16 @@
-:root[b-qy8ohi93r2]{
+:root{
     --pm-color : rgb(20, 82, 107);
     --box-bg : rgba(45, 83, 133, 0.418);
   }
-  *[b-qy8ohi93r2]{
+  *{
     margin: 0;
     padding: 0;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
-  body[b-qy8ohi93r2]{
+  body{
     background-color: rgb(18, 148, 105);
   }
-  nav[b-qy8ohi93r2]{
+  nav{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -21,21 +21,21 @@
     border-bottom: 1px solid rgb(13, 51, 66);
     align-items: center;
   }
-  a[b-qy8ohi93r2]{
+  a{
     color: white;
     text-decoration: none;
   }
-  select[b-qy8ohi93r2]{
+  select{
     background-color: transparent;
     border: 0;
     color: white;
     font-size: 25px;
   }
-  option[b-qy8ohi93r2]{
+  option{
     background-color: transparent;
     color: black;
   }
-  .main[b-qy8ohi93r2]{
+  .main{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -45,24 +45,54 @@
     margin-top: 100px;
     margin-bottom: 100px;
   }
-  .box-container[b-qy8ohi93r2]{
+  .box-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: center;
     background-color: rgb(16, 95, 69);
-    padding: 200px;
+    gap:10px;
     border-radius: 10px;
     border: 5px solid rgb(11, 61, 44);
+    padding: 20px;
   }
-  .ariza-container[b-qy8ohi93r2]{
-
+  .product{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    width: 45%;
+    height: 200px;
+    border-radius: 12px;
+    background-color: rgb(40, 127, 75);
+    border: 2px solid rgb(20, 69, 40);
   }
-  table[b-qy8ohi93r2]{
+  .product:hover{
+    background-color: rgb(29, 97, 56);
+  }
+  table{
     margin-top: 20px;
     background-color: rgb(28, 116, 86);
     border: 5px solid rgb(197, 197, 197);
     border-radius: 5px;
   }
-  td[b-qy8ohi93r2],th[b-qy8ohi93r2]{
+  td,th{
     border: 3px solid rgb(197, 197, 197);
     padding: 10px;
     font-size: 20px;
     color: white;
+  }
+  .back-btn{
+    border: 1px solid black;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 13px;
+    background-color: black;
+    border:2px solid rgb(42, 42, 42);
+    color: white;
+  }
+  .back-btn:active{
+    background-color: rgb(34, 34, 34);
   }

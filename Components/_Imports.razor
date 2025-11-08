@@ -9,3 +9,9 @@
 @using Microsoft.JSInterop
 @using LisaKonveyer
 @using LisaKonveyer.Components
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> UserManager
+@using LisaKonveyer.Data
+@inject NavigationManager Navigator
+

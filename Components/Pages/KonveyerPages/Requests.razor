@@ -1,6 +1,15 @@
 @page "/Requests"
 
-<NavBar/>
+<nav>
+        <h1>Lisa Kredit konveyeri</h1>
+        <select name="" id="" @onchange="SendUser">
+            <option value="/">-------------------</option>
+            <option value="/ApplicationsPage">Arizani yuborish</option>
+            <option value="/Requests">Arizalar tarixi</option>
+        </select>
+        <a href="">@(CurrentUser?.Email ?? "Kirilmagan hisob")</a>
+</nav>
+
 <div class="main">
         <h1>Arizalar</h1>
         <div class="ariza-container">
@@ -84,3 +93,23 @@
             </table>
         </div>
     </div>
+
+
+@code{
+    private ApplicationUser CurrentUser;
+
+    protected override async Task OnInitializedAsync(){
+        var state = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = state.User;
+
+        if (user.Identity.IsAuthenticated){
+            CurrentUser = await UserManager.GetUserAsync(user);
+        }
+    }
+
+    private void SendUser(ChangeEventArgs e){
+        if (e.Value != null){
+            Navigator.NavigateTo(e.Value.ToString());
+        }
+    }
+}

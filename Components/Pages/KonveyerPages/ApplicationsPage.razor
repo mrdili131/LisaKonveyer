@@ -1,0 +1,73 @@
+@page "/ApplicationsPage"
+@rendermode InteractiveServer
+@inject LisaKonveyer.Data.ApplicationDbContext DbContext
+@using Microsoft.EntityFrameworkCore
+@using LisaKonveyer.Models
+
+<nav>
+        <h1>Lisa Kredit konveyeri</h1>
+        <select name="" id="" @onchange="SendUser">
+            <option value="/">-------------------</option>
+            <option value="/ApplicationsPage">Arizani yuborish</option>
+            <option value="/Requests">Arizalar tarixi</option>
+        </select>
+        <a href="">@(CurrentUser?.Email ?? "Kirilmagan hisob")</a>
+</nav>
+
+<div class="main">
+        <h1>Kredit maxsulotlari</h1>
+        <br>
+        <div class="box-container">
+        @foreach(var app in Apps){
+            <button @onclick="()=>CreateRequest(app.Id)" class="product" style="color:white">
+                <h1>@app.Name</h1>
+                <h3>Max Summa @app.MaxAmount.ToString("N0")</h3>
+                <h3>Max Muddat @app.MaxMonth oy</h3>
+            </button>
+        }
+        </div>
+        <br>
+        <a href="/" class="back-btn">Orqaga</a>
+</div>
+
+
+@code{
+    List<Application> Apps = new List<Application>();
+    private ApplicationUser CurrentUser;
+    LoanRequest newreq = new LoanRequest();
+
+
+    protected override async Task OnInitializedAsync(){
+        Apps = await DbContext.Applications.ToListAsync();
+
+        var state = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = state.User;
+
+        if (user.Identity.IsAuthenticated){
+            CurrentUser = await UserManager.GetUserAsync(user);
+        }
+    }
+
+    private void SendUser(ChangeEventArgs e){
+        if (e.Value != null){
+            Navigator.NavigateTo(e.Value.ToString());
+        }
+    }
+
+    public async Task CreateRequest(int Id){
+        var app = await DbContext.Applications.FirstOrDefaultAsync(i=>i.Id==Id);
+        var filial = await DbContext.Filials.FirstOrDefaultAsync(i=>i.Id==CurrentUser.FilialId);
+        newreq = new LoanRequest{
+            Application = app,
+            ApplicationId = app.Id,
+            User = CurrentUser,
+            UserId = CurrentUser.Id,
+            Filial = filial,
+            FilialId = filial.Id,
+            InterestRate = app.InterestRate
+        };
+        DbContext.LoanRequests.Add(newreq);
+        await DbContext.SaveChangesAsync();
+        Navigator.NavigateTo($"/KonveyerPage/{newreq.Id}");
+    }
+}
