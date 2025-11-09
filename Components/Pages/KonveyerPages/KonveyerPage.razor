@@ -16,7 +16,7 @@
 
 <div class="body">
   <div class="main">
-    <h1 style="padding: 20px;">Ariza @req.Filial</h1>
+    <h1 style="padding: 20px;">Ariza @(req?.ContractId ?? "null")</h1>
     <!-- -----------------------------------First Tab-----Kredit------------------------------------------ -->
     <div class='tab @(CurrentTab=="kredit"?"active":"")' id="kredit">
         <div class="first-tab">
@@ -80,19 +80,23 @@
             <div class="second-tab-data">
               <div class="input-item">
                 <label for="jshshir">Jshshir</label>
-                <input type="text" id="jshshir" name="jshshir" placeholder="JSHSHIR">
+                <input @bind="newclient.PassportPinfl" type="text" id="jshshir" name="jshshir" placeholder="JSHSHIR">
+              </div>
+              <div class="input-item">
+                <label for="search">Izlash</label>
+                <button @onclick="SearchClient" class="search-btn">Izlash</button>
               </div>
               <div class="input-item">
                 <label for="first_name">Ism</label>
-                <input type="text" id="first_name" name="first_name" placeholder="Ism">
+                <input @bind="newclient.FirstName" type="text" id="first_name" name="first_name" placeholder="Ism">
               </div>
               <div class="input-item">
                 <label for="last_name">Familiya</label>
-                <input type="text" id="last_name" name="last_name" placeholder="Familiya">
+                <input @bind="newclient.LastName" type="text" id="last_name" name="last_name" placeholder="Familiya">
               </div>
               <div class="input-item">
                 <label for="middle_name">Otasining ismi</label>
-                <input type="text" id="middle_name" name="middle_name" placeholder="Otasining ismi">
+                <input @bind="newclient.MiddleName" type="text" id="middle_name" name="middle_name" placeholder="Otasining ismi">
               </div>
               <div class="input-item">
                 <label for="gender">Jinsi</label>
@@ -103,15 +107,15 @@
               </div>
               <div class="input-item">
                 <label for="birth_date">Tug‘ilgan sana</label>
-                <input type="date" id="birth_date" name="birth_date">
+                <input @bind="newclient.BornIn" type="date" id="birth_date" name="birth_date">
               </div>
               <div class="input-item">
                 <label for="region">Shahar(tuman)</label>
-                <input type="text" id="region" name="region" placeholder="Farg‘ona viloyati">
+                <input @bind="newclient.Region" type="text" id="region" name="region" placeholder="Farg‘ona viloyati">
               </div>
               <div class="input-item">
                 <label for="country">Davlat</label>
-                <input type="text" id="country" name="country" placeholder="O‘zbekiston">
+                <input @bind="newclient.Country" type="text" id="country" name="country" placeholder="O‘zbekiston">
               </div>
               <div class="input-item">
                 <label for="education">Ma‘lumoti</label>
@@ -128,31 +132,23 @@
             <div class="second-tab-data">
               <div class="input-item">
                 <label for="serial">Passport seriyasi</label>
-                <input type="text" id="serial" name="serial" placeholder="AB">
-              </div>
-              <div class="input-item">
-                <label for="serial_num">Seriya raqami</label>
-                <input type="text" id="serial_num" name="serial_num" placeholder="1001200">
+                <input @bind="newclient.PassportSerial" type="text" id="serial" name="serial" placeholder="AB">
               </div>
               <div class="input-item">
                 <label for="pass_got">Olingan sanasi</label>
-                <input type="date" id="pass_got" name="pass_got">
+                <input @bind="newclient.PassportGotDate" type="date" id="pass_got" name="pass_got">
               </div>
               <div class="input-item">
                 <label for="pass_exp">Tugash sanasi</label>
-                <input type="date" id="pass_exp" name="pass_exp">
+                <input @bind="newclient.PassportExpireDate" type="date" id="pass_exp" name="pass_exp">
               </div>
               <div class="input-item">
                 <label for="got_place">Berilgan joyi</label>
-                <input type="text" id="got_place" name="got_place" placeholder="IIV 27248">
+                <input @bind="newclient.PassportRegion" type="text" id="got_place" name="got_place" placeholder="IIV 27248">
               </div>
               <div class="input-item">
                 <label for="country_passport">Davlat</label>
-                <input type="text" id="country_passport" name="country_passport" placeholder="O‘zbekiston">
-              </div>
-              <div class="input-item">
-                <label for="region_pass">Shahar(tuman)</label>
-                <input type="text" id="region_pass" name="region_pass" placeholder="Farg‘ona viloyati">
+                <input @bind="newclient.PassportCountry" type="text" id="country_passport" name="country_passport" placeholder="O‘zbekiston">
               </div>
               </div>
           </div>
@@ -166,39 +162,39 @@
               <div class="second-tab-data">
                 <div class="input-item">
                     <label for="base_country">Davlat</label>
-                    <input type="text" id="base_country" name="base_country" placeholder="O‘zbekiston">
+                    <input @bind="newclient.GovCountry" type="text" id="base_country" name="base_country" placeholder="O‘zbekiston">
                 </div>
                 <div class="input-item">
                     <label for="viloyat">Viloyat</label>
-                    <input type="text" id="base_viloyat" name="viloyat" placeholder="Farg‘ona viloyati">
+                    <input @bind="newclient.GovRegion" type="text" id="base_viloyat" name="viloyat" placeholder="Farg‘ona viloyati">
                   </div>
                 <div class="input-item">
                     <label for="shahar">Shahar(tuman)</label>
-                    <input type="text" id="base_shahar" name="shahar" placeholder="Farg‘ona shahri">
+                    <input @bind="newclient.GovCity" type="text" id="base_shahar" name="shahar" placeholder="Farg‘ona shahri">
                 </div>
                 <div class="input-item">
                     <label for="address">Manzil</label>
-                    <input type="text" id="base_address" name="address" style="width: 350px;" placeholder="Birnima MFY Birnima ko‘chasi 01-uy">
+                    <input @bind="newclient.GovAddress" type="text" id="base_address" name="address" style="width: 350px;" placeholder="Birnima MFY Birnima ko‘chasi 01-uy">
                 </div>
               </div>
-              <button class="in_btn" onclick="same_address()">Pastga tushirish</button>
+              <button class="in_btn" @onclick="ToDownAddress">Pastga tushirish</button>
               <h1>Joriy manzil ma'lumotlari</h1>
               <div class="second-tab-data">
                 <div class="input-item">
                     <label for="country_pass">Davlat</label>
-                    <input type="text" id="country_pass" name="country_pass" placeholder="O‘zbekiston">
+                    <input @bind="newclient.CurrentCountry" type="text" id="country_pass" name="country_pass" placeholder="O‘zbekiston">
                 </div>
                 <div class="input-item">
                     <label for="viloyat">Viloyat</label>
-                    <input type="text" id="pass_viloyat" name="viloyat" placeholder="Farg‘ona viloyati">
+                    <input @bind="newclient.CurrentRegion" type="text" id="pass_viloyat" name="viloyat" placeholder="Farg‘ona viloyati">
                   </div>
                 <div class="input-item">
                     <label for="shahar">Shahar(tuman)</label>
-                    <input type="text" id="shahar" name="shahar" placeholder="Farg‘ona shahri">
+                    <input @bind="newclient.CurrentCity" type="text" id="shahar" name="shahar" placeholder="Farg‘ona shahri">
                 </div>
                 <div class="input-item">
                     <label for="address">Manzil</label>
-                    <input type="text" id="address" name="address" style="width: 350px;" placeholder="Birnima MFY Birnima ko‘chasi 01-uy">
+                    <input @bind="newclient.CurrentAddress" type="text" id="address" name="address" style="width: 350px;" placeholder="Birnima MFY Birnima ko‘chasi 01-uy">
                 </div>
               </div>
             </div>
@@ -212,29 +208,21 @@
             <div class="second-tab-data">
               <div class="input-item">
                   <label for="num">Telefon raqam</label>
-                  <input type="text" id="num" name="num" style="width: 350px;" placeholder="94 139 07 72">
+                  <input @bind="newnum.Number" type="text" id="num" name="num" style="width: 350px;" placeholder="94 139 07 72">
               </div>
               <div class="input-item">
                   <label for="num_comment">Izoh</label>
-                  <input type="text" id="num_comment" name="num_comment" style="width: 350px;" placeholder="Birnimajon">
+                  <input @bind="newnum.Name" type="text" id="num_comment" name="num_comment" style="width: 350px;" placeholder="Birnimajon">
               </div>
-              <button class="in_btn">Saqlash</button>
+              <button @onclick="SaveNumber" class="in_btn">Saqlash</button>
             </div>
+          @foreach(var num in PhoneNumbers){
             <div class="second-tab-data">
-              <h1>94 139 07 72</h1>
-              <h1>Birnimajon</h1>
-              <button class="in_btn">O‘chirish</button>
+              <h1>@num.Number</h1>
+              <h1>@num.Name</h1>
+              <button @onclick="()=>DeleteNumber(num.Id)" class="in_btn">O‘chirish</button>
             </div>
-            <div class="second-tab-data">
-              <h1>94 139 07 72</h1>
-              <h1>Birnimajon</h1>
-              <button class="in_btn">O‘chirish</button>
-            </div>
-            <div class="second-tab-data">
-              <h1>94 139 07 72</h1>
-              <h1>Birnimajon</h1>
-              <button class="in_btn">O‘chirish</button>
-            </div>
+          }
           </div>
     </div>
 
@@ -272,11 +260,11 @@
                       <div class="sixth-tab-data">
                         <div class="row-data-view">
                           <p>FIO:</p>
-                          <h2>Polonchiyev Polonchi Pistonchiyevich</h2>
+                          <h2>@(newclient?.FullName ?? "null")</h2>
                         </div>
                         <div class="row-data-view">
                           <p>JSHSHIR:</p>
-                          <h2>8542465464443254242</h2>
+                          <h2>@(newclient?.PassportPinfl ?? "null")</h2>
                         </div>
                         <div class="row-data-view">
                           <p>TUG‘ILGAN SANA:</p>
@@ -307,35 +295,35 @@
                     <div class="sixth-tab-data">
                         <div class="row-data-view">
                           <p>Guvohnoma seriyasi va nomeri:</p>
-                          <h2>AB 1529833</h2>
+                          <h2>@(newclient?.PassportSerial ?? "null")</h2>
                         </div>
                         <div class="row-data-view">
                           <p>Guvohnoma turi:</p>
                           <h2>Биометрический паспорт гражданина Респ.Узбекистан</h2>
                         </div>
                         <div class="row-data-view">
-                          <p>Berilgan sana:</p>c
-                          <h2>08.10.2015</h2>
+                          <p>Berilgan sana:</p>
+                          <h2>@(newclient?.PassportGotDate?.ToString("dd-MM-yyyy") ?? "null")</h2>
                         </div>
                         <div class="row-data-view">
                           <p>Tugash muddati:</p>
-                          <h2>07.10.2025</h2>
+                          <h2>@(newclient?.PassportExpireDate?.ToString("dd-MM-yyyy") ?? "null")</h2>
                         </div>
                         <div class="row-data-view">
                           <p>Fuqarolik:</p>
-                          <h2>Узбекистан</h2>
+                          <h2>@(newclient?.PassportCountry ?? "null")</h2>
                         </div>
                         <div class="row-data-view">
                           <p>Berilgan:</p>
-                          <h2>Toshkent viloyati Yuqorichirchiq tumani IIB</h2>
+                          <h2>@(newclient?.PassportRegion ?? "null")</h2>
                         </div>
                         <div class="row-data-view">
                           <p>Ro'yxatdan o'tgan joyi:</p>
-                          <h2>Узбекистан | ЮКОРИЧИРЧИК ТУМАНИ | ТОШКЕНТ ВИЛОЯТИ | "Fayzobod" MFY Tinchlik ko‘chasi 12-uy</h2>
+                          <h2>@(newclient?.GovCountry ?? "null") | @(newclient?.GovRegion ?? "null") | @(newclient?.GovCity ?? "null") | @(newclient?.GovAddress ?? "null")</h2>
                         </div>
                         <div class="row-data-view">
                           <p>Yashash joyi:</p>
-                          <h2>Узбекистан | ЮКОРИЧИРЧИК ТУМАНИ | ТОШКЕНТ ВИЛОЯТИ | "Fayzobod" MFY Tinchlik ko‘chasi 12-uy</h2>
+                          <h2>@(newclient?.CurrentCountry ?? "null") | @(newclient?.CurrentRegion ?? "null") | @(newclient?.CurrentCity ?? "null") | @(newclient?.CurrentAddress ?? "null")</h2>
                         </div>
                       </div>
                   </div>
@@ -385,8 +373,11 @@
   public int Id;
 
     List<string> Tabs = new List<string>{"kredit","klient","yashash","telefon","karta","tasdiq","yakun"};
+    List<PhoneNumber> PhoneNumbers = new List<PhoneNumber>();
     string CurrentTab = "kredit";
     LoanRequest req = new LoanRequest();
+    Client newclient = new Client();
+    PhoneNumber newnum = new PhoneNumber();
 
     protected override async Task OnInitializedAsync(){
       Id = int.Parse(loan_request_id);
@@ -394,7 +385,33 @@
         .Include(r => r.Application)
         .Include(r => r.User)
         .Include(r => r.Filial)
+        .Include(r => r.Client)
         .FirstOrDefaultAsync(i=>i.Id==Id);
+
+      if(req != null && req.Client != null && req.Client.PassportPinfl != null){
+        newclient.PassportPinfl = req.Client.PassportPinfl;
+        await SearchClient();
+        PhoneNumbers = await DbContext.PhoneNumbers.Where(i=>i.ClientId == newclient.Id).ToListAsync();
+      }
+    }
+
+    public async Task SearchClient(){
+      if (newclient.PassportPinfl != null){
+        Client finding = await DbContext.Clients.FirstOrDefaultAsync(i=>i.PassportPinfl==newclient.PassportPinfl);
+        if (finding != null){
+          newclient = finding;
+          await DbContext.SaveChangesAsync();
+          req.ClientId = newclient.Id;
+          req.Client = newclient;
+          await SaveRequest();
+          return;
+        }
+        newclient = new Client();
+      }
+        newclient.FilialId = req.FilialId;
+        newclient.Filial = await DbContext.Filials.FirstOrDefaultAsync(i=>i.Id==req.FilialId);
+        DbContext.Clients.Add(newclient);
+        await DbContext.SaveChangesAsync();
     }
 
     public void OnNextTab(){
@@ -414,8 +431,35 @@
     }
 
     public async Task SaveRequest(){
+      req.ContractId = $"{req.Filial.Name[..2]}-{Id}";
       DbContext.LoanRequests.Update(req);
       await DbContext.SaveChangesAsync();
+    }
+
+    public async Task ToDownAddress(){
+      newclient.CurrentCountry = newclient.GovCountry;
+      newclient.CurrentRegion = newclient.GovRegion;
+      newclient.CurrentRegion = newclient.GovCity;
+      newclient.CurrentAddress = newclient.GovAddress;
+      await SearchClient();
+    }
+
+    public async Task SaveNumber(){
+      if(!string.IsNullOrWhiteSpace(newnum.Name) && !string.IsNullOrWhiteSpace(newnum.Number)){
+        newnum.ClientId = newclient.Id;
+        newnum.Client = newclient;
+        DbContext.PhoneNumbers.Add(newnum);
+        await DbContext.SaveChangesAsync();
+        newnum = new PhoneNumber();
+        PhoneNumbers = await DbContext.PhoneNumbers.Where(i=>i.ClientId == newclient.Id).ToListAsync();
+      }
+    }
+
+    public async Task DeleteNumber(int Id){
+      var num = await DbContext.PhoneNumbers.FirstOrDefaultAsync(i=>i.Id==Id);
+      DbContext.PhoneNumbers.Remove(num);
+      await DbContext.SaveChangesAsync();
+      PhoneNumbers = await DbContext.PhoneNumbers.Where(i=>i.ClientId == newclient.Id).ToListAsync();
     }
 }
 

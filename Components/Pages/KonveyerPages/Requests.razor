@@ -1,4 +1,8 @@
 @page "/Requests"
+@using LisaKonveyer.Models
+@inject NavigationManager Navigator
+@inject LisaKonveyer.Data.ApplicationDbContext DbContext
+@using Microsoft.EntityFrameworkCore
 
 <nav>
         <h1>Lisa Kredit konveyeri</h1>
@@ -29,66 +33,20 @@
                     </tr>
                 </thead>
                 <tbody>
+                @foreach(var req in Reqs){
                     <tr>
-                        <th>123321</th>
-                        <th>F13-099925</th>
-                        <th>14.05.2025</th>
-                        <th>Dilmuhammad Abduqodirov Sodirjon o‘g‘li</th>
-                        <th>45254567484642345</th>
-                        <th>10 000 000</th>
-                        <th>Imkoniyat</th>
-                        <th>D.S.Abduqodirov</th>
-                        <th>Chirchiq filiali</th>
+                        <th>@req.Id</th>
+                        <th><a href="/KonveyerPage/@req.Id">@(req?.ContractId ?? "")</a></th>
+                        <th>@req.StartDate</th>
+                        <th>@(req?.Client?.FullName ?? "")</th>
+                        <th>@(req?.Client?.PassportPinfl ?? "")</th>
+                        <th>@(req?.Amount?.ToString("N0") ?? "")</th>
+                        <th>@req.Application.Name</th>
+                        <th>@req.User.Email</th>
+                        <th>@req.Filial.Name</th>
                         <th>berilgan</th>
                     </tr>
-                    <tr>
-                        <th>123321</th>
-                        <th>F13-099925</th>
-                        <th>14.05.2025</th>
-                        <th>Dilmuhammad Abduqodirov Sodirjon o‘g‘li</th>
-                        <th>45254567484642345</th>
-                        <th>10 000 000</th>
-                        <th>Imkoniyat</th>
-                        <th>D.S.Abduqodirov</th>
-                        <th>Chirchiq filiali</th>
-                        <th>berilgan</th>
-                    </tr>
-                    <tr>
-                        <th>123321</th>
-                        <th>F13-099925</th>
-                        <th>14.05.2025</th>
-                        <th>Dilmuhammad Abduqodirov Sodirjon o‘g‘li</th>
-                        <th>45254567484642345</th>
-                        <th>10 000 000</th>
-                        <th>Imkoniyat</th>
-                        <th>D.S.Abduqodirov</th>
-                        <th>Chirchiq filiali</th>
-                        <th>berilgan</th>
-                    </tr>
-                    <tr>
-                        <th>123321</th>
-                        <th>F13-099925</th>
-                        <th>14.05.2025</th>
-                        <th>Dilmuhammad Abduqodirov Sodirjon o‘g‘li</th>
-                        <th>45254567484642345</th>
-                        <th>10 000 000</th>
-                        <th>Imkoniyat</th>
-                        <th>D.S.Abduqodirov</th>
-                        <th>Chirchiq filiali</th>
-                        <th>berilgan</th>
-                    </tr>
-                    <tr>
-                        <th>123321</th>
-                        <th>F13-099925</th>
-                        <th>14.05.2025</th>
-                        <th>Dilmuhammad Abduqodirov Sodirjon o‘g‘li</th>
-                        <th>45254567484642345</th>
-                        <th>10 000 000</th>
-                        <th>Imkoniyat</th>
-                        <th>D.S.Abduqodirov</th>
-                        <th>Chirchiq filiali</th>
-                        <th>berilgan</th>
-                    </tr>
+                }
                 </tbody>
             </table>
         </div>
@@ -97,6 +55,7 @@
 
 @code{
     private ApplicationUser CurrentUser;
+    List<LoanRequest> Reqs = new List<LoanRequest>();
 
     protected override async Task OnInitializedAsync(){
         var state = await AuthenticationStateProvider.GetAuthenticationStateAsync();
@@ -104,6 +63,12 @@
 
         if (user.Identity.IsAuthenticated){
             CurrentUser = await UserManager.GetUserAsync(user);
+            Reqs = await DbContext.LoanRequests.Where(i=>i.FilialId==CurrentUser.FilialId)
+                .Include(r => r.Application)
+                .Include(r => r.User)
+                .Include(r => r.Filial)
+                .Include(r => r.Client)
+                .ToListAsync();
         }
     }
 

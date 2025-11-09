@@ -17,6 +17,7 @@ namespace LisaKonveyer.Data
         public DbSet<Loan> Loans {get;set;}
         public DbSet<LoanRequest> LoanRequests {get;set;}
         public DbSet<Application> Applications {get;set;}
+        public DbSet<PhoneNumber> PhoneNumbers {get;set;}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -5,6 +5,14 @@ namespace LisaKonveyer.Models
 {
     public class LoanRequest
     {
+        public LoanRequest()
+        {
+            if (Filial != null)
+            {
+                ContractId = $"{Filial.Name[..2]}-{Id}";
+            }
+        }
+
         public int Id {get;set;}
         public int FilialId {get;set;}
         public int ApplicationId {get;set;}
